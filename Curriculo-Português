@@ -1,0 +1,130 @@
+
+<!-- Curriculo em codigo -->
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Currículo</title>
+  <!-- Adicione um link para a biblioteca de ícones (FontAwesome) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Adicione a biblioteca jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
+  <style>
+    /* Estilos para o corpo da página */
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      margin: 0;
+      background-color: #121212; /* Azul escuro metálico */
+      color: #ffffff; /* Fonte branca */
+    }
+    
+    /* Estilos para os elementos de texto */
+    h1, h2, h3, p {
+      color: #ffffff; /* Fonte branca */
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    .icon {
+      font-size: 24px;
+      margin-right: 10px;
+    }
+    
+    /* Cores dos ícones */
+    .fa-python {
+      color: #306998; /* Azul do Python */
+    }
+    
+    .fa-js {
+      color: #f0db4f; /* Amarelo do JavaScript */
+    }
+    
+    .fa-html5 {
+      color: #e34f26; /* Laranja do HTML5 */
+    }
+    
+    .fa-css3-alt {
+      color: #1572b6; /* Azul do CSS3 */
+    }
+    
+    /* Estilos para o botão de download */
+    #download-pdf {
+      display: block;
+      width: 150px;
+      margin: 20px auto;
+      padding: 10px;
+      background-color: #4CAF50; /* Verde */
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    
+    #download-pdf:hover {
+      background-color: #45a049; /* Verde mais escuro */
+    }
+  </style>
+</head>
+<body>
+  <h1>Meu Currículo</h1>
+  
+  <h2>Informações Pessoais</h2>
+  <p>Felipe Barbosa Costa</p>
+  <p>E-mail: felipebcosta09@gmail.com</p>
+  <p>Telefone: (21) 97012-4760</p>
+  <p>Localidade: Rio de Janeiro, RJ</p>
+  
+  <h2>Objetivo Profissional</h2>
+  <p>Buscar oportunidades desafiadoras como Desenvolvedor Júnior Front-End para aplicar meus conhecimentos em programação e continuar aprendendo e crescendo na área de tecnologia.</p>
+  
+  <h2>Educação</h2>
+  <p>Graduando em Análise e Desenvolvimento de Sistemas - Instituto Brasileiro de Mercado de Capitais (IBMR), Rio de Janeiro, RJ</p>
+  
+  <h2>Certificações</h2>
+  <p>
+    <i class="icon fab fa-python"></i> Python<br>
+    <i class="icon fab fa-js"></i> JavaScript<br>
+    <i class="icon fab fa-html5"></i> HTML<br>
+    <i class="icon fab fa-css3-alt"></i> CSS
+  </p>
+  
+  <h2>Habilidades</h2>
+  <p><i class="icon fas fa-book"></i> Conhecimento sólido em lógica de programação, permitindo programarem diversas linguagens</p>
+  <p><i class="icon fas fa-bolt"></i> Vontade de aprender e crescer profissionalmente</p>
+  <p><i class="icon fas fa-comments"></i> Proatividade e capacidade de trabalhar de forma independente</p>
+  <p><i class="icon fas fa-user"></i> Excelentes habilidades de comunicação e trabalho em equipe</p>
+  
+  <h2>Idiomas</h2>
+  <p>Português (nativo)</p>
+  <p>Inglês (intermediário)</p>
+  
+  <!-- Botão de download do PDF -->
+  <a id="download-pdf" href="#">Baixar PDF</a>
+  
+  <script>
+    // Adiciona um evento de clique ao botão de download
+    document.getElementById('download-pdf').addEventListener('click', function() {
+      // Cria uma nova instância de jsPDF
+      var doc = new jsPDF();
+
+      // Captura o conteúdo HTML da página
+      var html = document.documentElement;
+
+      // Converte o HTML para PDF
+      doc.html(html, {
+        callback: function(pdf) {
+          // Salva o PDF
+          pdf.save('meu_curriculo.pdf');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
