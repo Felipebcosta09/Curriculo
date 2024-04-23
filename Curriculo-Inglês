@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Resume</title>
+  <!-- Add a link to the icon library (FontAwesome) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Add the jsPDF library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.3/jspdf.umd.min.js"></script>
+  <style>
+    /* Styles for the body of the page */
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      margin: 0;
+      background-color: #121212; /* Metallic dark blue */
+      color: #ffffff; /* White font */
+    }
+    
+    /* Styles for text elements */
+    h1, h2, h3, p {
+      color: #ffffff; /* White font */
+    }
+    
+    h1 {
+      text-align: center;
+    }
+    
+    .icon {
+      font-size: 24px;
+      margin-right: 10px;
+    }
+    
+    /* Icon colors */
+    .fa-python {
+      color: #306998; /* Python blue */
+    }
+    
+    .fa-js {
+      color: #f0db4f; /* JavaScript yellow */
+    }
+    
+    .fa-html5 {
+      color: #e34f26; /* HTML5 orange */
+    }
+    
+    .fa-css3-alt {
+      color: #1572b6; /* CSS3 blue */
+    }
+    
+    /* Styles for the download button */
+    #download-pdf {
+      display: block;
+      width: 150px;
+      margin: 20px auto;
+      padding: 10px;
+      background-color: #4CAF50; /* Green */
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    
+    #download-pdf:hover {
+      background-color: #45a049; /* Darker green */
+    }
+  </style>
+</head>
+<body>
+  <h1>My Resume</h1>
+  
+  <h2>Personal Information</h2>
+  <p>Name: Felipe Barbosa Costa</p>
+  <p>Email: felipebcosta09@gmail.com</p>
+  <p>Phone: (21) 97012-4760</p>
+  <p>Location: Rio de Janeiro, RJ</p>
+  
+  <h2>Professional Objective</h2>
+  <p>Seeking challenging opportunities as a Junior Front-End Developer to apply my programming knowledge and continue learning and growing in the field of technology.</p>
+  
+  <h2>Education</h2>
+  <p>Undergraduate in Systems Analysis and Development - Brazilian Institute of Capital Markets (IBMR), Rio de Janeiro, RJ</p>
+  
+  <h2>Certifications</h2>
+  <p>
+    <i class="icon fab fa-python"></i> Python<br>
+    <i class="icon fab fa-js"></i> JavaScript<br>
+    <i class="icon fab fa-html5"></i> HTML<br>
+    <i class="icon fab fa-css3-alt"></i> CSS
+  </p>
+  
+  <h2>Skills</h2>
+  <p><i class="icon fas fa-book"></i> Solid understanding of programming logic, enabling programming in various languages</p>
+  <p><i class="icon fas fa-bolt"></i> Willingness to learn and grow professionally</p>
+  <p><i class="icon fas fa-comments"></i> Proactivity and ability to work independently</p>
+  <p><i class="icon fas fa-user"></i> Excellent communication and teamwork skills</p>
+  
+  <h2>Languages</h2>
+  <p>Portuguese (native)</p>
+  <p>English (intermediate)</p>
+  
+  <!-- PDF download button -->
+  <a id="download-pdf" href="#">Download PDF</a>
+  
+  <script>
+    // Add a click event to the download button
+    document.getElementById('download-pdf').addEventListener('click', function() {
+      // Create a new instance of jsPDF
+      var doc = new jsPDF();
+
+      // Capture the HTML content of the page
+      var html = document.documentElement;
+
+      // Convert HTML to PDF
+      doc.html(html, {
+        callback: function(pdf) {
+          // Save the PDF
+          pdf.save('my_resume.pdf');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
